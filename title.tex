@@ -1,0 +1,201 @@
+\documentclass[letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english, spanish]{babel}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{epigraph}
+\usepackage{lipsum}
+\usepackage[hyphens]{url}
+\usepackage[breaklinks,colorlinks=true,linkcolor=red,
+citecolor=red, urlcolor=blue]{hyperref}
+\renewcommand\epigraphflush{flushright}
+\renewcommand\epigraphsize{\normalsize}
+\setlength{\parindent}{1cm}
+\renewcommand{\labelitemi}{$-$}
+\setlength\epigraphwidth{0.7\textwidth}
+%\usepackage[T1]{fontenc}
+%\usepackage{inconsolata}
+%\renewcommand*\familydefault{\ttdefault}
+
+
+\definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
+
+\DeclareFixedFont{\titlefont}{T1}{ppl}{b}{it}{0.5in}
+
+\makeatletter                       
+\def\printauthor{%                  
+    {\large \@author}}              
+\makeatother
+\author{%
+    Jhonatan I. Castro Rocabado \\
+    \texttt{}\vspace{20pt} \\
+    Oscar R. Choque Huayta\\
+    \texttt{}
+    }
+
+% The following code is borrowed from: http://tex.stackexchange.com/a/86310/10898
+
+\newcommand\titlepagedecoration{%
+\begin{tikzpicture}[remember picture,overlay,shorten >= -10pt]
+
+\coordinate (aux1) at ([yshift=-15pt]current page.north east);
+\coordinate (aux2) at ([yshift=-410pt]current page.north east);
+\coordinate (aux3) at ([xshift=-4.5cm]current page.north east);
+\coordinate (aux4) at ([yshift=-150pt]current page.north east);
+
+\begin{scope}[titlepagecolor!40,line width=12pt,rounded corners=12pt]
+\draw
+  (aux1) -- coordinate (a)
+  ++(225:5) --
+  ++(-45:5.1) coordinate (b);
+\draw[shorten <= -10pt]
+  (aux3) --
+  (a) --
+  (aux1);
+\draw[opacity=0.6,titlepagecolor,shorten <= -10pt]
+  (b) --
+  ++(225:2.2) --
+  ++(-45:2.2);
+\end{scope}
+\draw[titlepagecolor,line width=8pt,rounded corners=8pt,shorten <= -10pt]
+  (aux4) --
+  ++(225:0.8) --
+  ++(-45:0.8);
+\begin{scope}[titlepagecolor!70,line width=6pt,rounded corners=8pt]
+\draw[shorten <= -10pt]
+  (aux2) --
+  ++(225:3) coordinate[pos=0.45] (c) --
+  ++(-45:3.1);
+\draw
+  (aux2) --
+  (c) --
+  ++(135:2.5) --
+  ++(45:2.5) --
+  ++(-45:2.5) coordinate[pos=0.3] (d);   
+\draw 
+  (d) -- +(45:1);
+\end{scope}
+\end{tikzpicture}%
+}
+
+\begin{document}
+\begin{titlepage}
+
+\noindent
+\titlefont Documento de\\de requerimientos \\
+para \\Se Busca
+\par
+\null\vfill
+\vspace*{1cm}
+\noindent
+\hfill
+\begin{minipage}{0.35\linewidth}
+    \begin{flushright}
+        \printauthor
+    \end{flushright}
+\end{minipage}
+%
+\begin{minipage}{0.02\linewidth}
+    \rule{1pt}{125pt}
+\end{minipage}
+\titlepagedecoration
+\end{titlepage}
+\tableofcontents
+\newpage
+\begin{center}
+\begin{Huge}
+\textbf{Se Busca\\
+Sistema de control para contrarrestar la Trata y
+el Tráfico de Personas}
+\end{Huge}
+\end{center}
+\section*{Miembros del equipo:}
+\begin{itemize}
+\item[$-$] Jhonatan Ismael Castro Rocabado.
+\item[$-$] Oscar Ramiro Choque Huayta.
+\end{itemize}
+\section{Placificacíon Inicial}
+\subsection{Solicitud de proyecto}
+El proyecto fue solicitado en la materia de INF-272, \"Taller de Base de
+Datos\", con el fin de aplicar los conocimientos de desarrollo de software
+adquiridos hasta ahora.
+\subsection{El porqué de la solicitud del proyecto}
+\subsubsection*{La problemática}
+La problemática que se aborda con el proyecto es el "Trata Tráfico de personas" como indica el título. Los últimos tiempos este ha sido un problema
+constante en la sociedad boliviana y en otros países.\\
+La forma en la que nuestro proyecto piensa atacar a este problema es
+brindando información geoposicional de los lugares donde las personas son
+vistas por última vez y brindando una plataforma en la que se pueda
+denunciar a todas las personas desaparecidas.
+\subsection{Evaluación de la información deseada }
+\subsubsection*{Los requerimientos}
+El sistema será diseñado para retroalimentarse de información
+automáticamente, es decir, los datos que utilizará el sistema serán los mismos
+que los usuarios aporten.
+\subsection{Situación actual}
+Actualmente no existe un sistema informático que ayude en esta
+problemática, esta es la razón por la cual se decidió a trabajar en este.
+\subsection{Estructura de División del trabajo}
+El desarrollo del Software se dividirá en las siguientes etapas y áreas.
+\begin{itemize}
+\item Ingeniería de requerimientos.
+\item Diseño y análisis del sistema.
+\item Desarrollo del “backend”.
+\item Desarrollo del “frontend”.
+\item Administración del servidor.
+\item Mantenimiento al sistema
+\end{itemize}
+\subsection{Conformación de equipo humano}
+El equipo estará conformado por los estudiantes de la materia INF-272, "Taller de Base de Datos":
+\begin{itemize}
+\item Jhonatan Castro.
+\item Oscar Choque.
+\end{itemize}
+\subsection{Estimación del plazo de entrega y precio}
+La estimación de tiempo se hará cuando se tengan bien definidos los
+módulos que serán desarrollados para el sistema.
+\\
+Como este es un proyecto con una licencia libre, inicialmente no se
+calculó el precio, pero esto se hará cuándo se tenga la información de la cantidad de horas que costará hacer el análisis, desarrollo y mantenimiento del sistema. A esto se multiplicará la experiencia y calidad de trabajo de los miembros del equipo.
+\section{Herramientas que se utilizarán}
+\begin{itemize}
+\item Para el desarrollo del software se utilizará el Framework “Laravel” desarrollado en el lenguaje PHP. Este cuenta con una licencia libre. \\ \url{www.laravel.com}
+\item Se hará el versionamiento con la herramienta Git y la plataforma Github, acá la dirección del proyecto:
+\url{https://github.com/jhtan/sebusca}
+\item Se controlará el avance de los miembros y se aplicará la metodología SCRUM utilizando la plataforma web también libre, Taiga.
+\url{https://taiga.io/}
+\end{itemize}
+\section{SCRUM}
+\subsection{Primer Sprint}
+\subsubsection*{Objetivos:}
+Análisis y diseño de "Se Busca"
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|c|} \hline
+\textbf{Historias de Usuario}& \textbf{Horas de Esfuerzo} \\\hline
+Diseño de Base de Datos &  \\\hline
+Diseño de ñas pantallas principales &  \\\hline
+\end{tabular}
+\end{table}
+\subsection{Segundo Sprint}
+\subsubsection*{Objetivos: }
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|} \hline
+\textbf{Historias de Usuario}& \textbf{Horas de Esfuerzo} \\\hline
+ &  \\\hline
+ &  \\\hline
+\end{tabular}
+\end{table}
+\subsection{Backlog}
+\subsubsection*{Objetivos:}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|} \hline
+\textbf{ }& \textbf{ } \\\hline
+ &  \\
+ \hline
+ &  \\\hline
+\end{tabular}
+\end{table}
+\end{document}
